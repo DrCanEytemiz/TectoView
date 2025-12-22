@@ -3,10 +3,11 @@ message: "If you use this software, please cite it using the metadata below."
 authors:
 - family-names: "Eytemiz"
   given-names: "Can"
-  affiliation: "Dokuz Eylul University Earthquake Research and Application Center (DAUM)"
+  affiliation: "Dokuz Eylul University"
   email: "can.eytemiz@deu.edu.tr"
 title: "TectoView Pro: Advanced Seismotectonic Cross-Section Plotter"
 version: 1.0.0
+doi: 10.5281/zenodo.18022059
 date-released: 2025-01-29
-url: "https://github.com/caneytemiz/TectoView-Pro"
+url: "https://github.com/DrCanEytemiz/TectoView-Pro"
 license: MIT
