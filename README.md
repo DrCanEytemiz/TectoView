@@ -2,10 +2,7 @@
 
 
 
-\[!\[DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXX)
-
-<!-- NOTE: You will update the link above after getting your DOI from Zenodo -->
-
+\[![DOI](https://zenodo.org/badge/1121270051.svg)](https://doi.org/10.5281/zenodo.18022059)
 
 
 \*\*TectoView Pro\*\* is a web-based, interactive tool designed for seismologists and structural geologists to visualize earthquake hypocenters, fault lines, and topography in 2D map view and 3D projected cross-sections.
@@ -18,7 +15,7 @@ It is designed to produce publication-quality (Q1 journal standard) figures dire
 
 \## 🚀 Live Demo
 
-\*\*\[Click here to use TectoView Pro](https://caneytemiz.github.io/TectoView-Pro/)\*\*  
+\*\*\[Click here to use TectoView Pro](https://DrCanEytemiz.github.io/TectoView-Pro/)\*\*  
 
 \*(No installation required. Runs entirely in your browser.)\*
 
@@ -93,4 +90,5 @@ This project is licensed under the MIT License - see the \[LICENSE](LICENSE) fil
 \*Dokuz Eylul University\*
 
 \*Earthquake Research and Application Center (DAUM)\*
+
 
