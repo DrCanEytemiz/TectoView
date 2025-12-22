@@ -15,7 +15,7 @@ It is designed to produce publication-quality (Q1 journal standard) figures dire
 
 \## 🚀 Live Demo
 
-\*\*\[Click here to use TectoView Pro](https://DrCanEytemiz.github.io/TectoView-Pro/)\*\*  
+\*\*\[Click here to use TectoView Pro](https://DrCanEytemiz.github.io/TectoView-Pro/) 
 
 \*(No installation required. Runs entirely in your browser.)\*
 
@@ -90,6 +90,7 @@ This project is licensed under the MIT License - see the \[LICENSE](LICENSE) fil
 \*Dokuz Eylul University\*
 
 \*Earthquake Research and Application Center (DAUM)\*
+
 
 
 
