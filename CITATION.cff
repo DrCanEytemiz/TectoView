@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+authors:
+- family-names: "Eytemiz"
+  given-names: "Can"
+  affiliation: "Dokuz Eylul University Earthquake Research and Application Center (DAUM)"
+  email: "can.eytemiz@deu.edu.tr"
+title: "TectoView Pro: Advanced Seismotectonic Cross-Section Plotter"
+version: 1.0.0
+date-released: 2025-01-29
+url: "https://github.com/caneytemiz/TectoView-Pro"
+license: MIT
