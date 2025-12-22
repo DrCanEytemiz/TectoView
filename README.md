@@ -73,7 +73,7 @@ If you use this tool in your research, please cite it as follows:
 
 
 
-> Eytemiz, C. (2025). TectoView Pro: Advanced Seismotectonic Cross-Section Plotter \[Software]. Zenodo. https://doi.org/10.5281/zenodo.XXXXXX
+> Eytemiz, C. (2025). TectoView Pro: Advanced Seismotectonic Cross-Section Plotter \[Software]. Zenodo. https://doi.org/10.5281/zenodo.18022059
 
 
 
@@ -90,6 +90,7 @@ This project is licensed under the MIT License - see the \[LICENSE](LICENSE) fil
 \*Dokuz Eylul University\*
 
 \*Earthquake Research and Application Center (DAUM)\*
+
 
 
 
