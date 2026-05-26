@@ -1,11 +1,11 @@
-\# TectoView Pro: Advanced Seismotectonic Cross-Section Plotter
+\# TectoView: Advanced Seismotectonic Cross-Section Plotter
 
 
 
 [![DOI](https://zenodo.org/badge/1121270051.svg)](https://doi.org/10.5281/zenodo.18022059)
 
 
-\*\*TectoView Pro\*\* is a web-based, interactive tool designed for seismologists and structural geologists to visualize earthquake hypocenters, fault lines, and topography in 2D map view and 3D projected cross-sections.
+\*\*TectoView\*\* is a web-based, interactive tool designed for seismologists and structural geologists to visualize earthquake hypocenters, fault lines, and topography in 2D map view and 3D projected cross-sections.
 
 
 
@@ -15,7 +15,7 @@ It is designed to produce publication-quality (Q1 journal standard) figures dire
 
 \## 🚀 Live Demo
 
-\*\*\[Click here to use TectoView Pro](https://DrCanEytemiz.github.io/TectoView-Pro/) 
+\*\*\[Click here to use TectoView](https://DrCanEytemiz.github.io/TectoView/) 
 
 \*(No installation required. Runs entirely in your browser.)\*
 
@@ -73,7 +73,7 @@ If you use this tool in your research, please cite it as follows:
 
 
 
-> Eytemiz, C. (2025). TectoView Pro: Advanced Seismotectonic Cross-Section Plotter \[Software]. Zenodo. https://doi.org/10.5281/zenodo.18022059
+> Eytemiz, C. (2025). TectoView: Advanced Seismotectonic Cross-Section Plotter \[Software]. Zenodo. https://doi.org/10.5281/zenodo.18022059
 
 
 
