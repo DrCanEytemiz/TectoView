@@ -5,7 +5,7 @@
 
 **TectoView** is a platform-independent, browser-based single-page application designed for rapid, interactive seismotectonic data exploration and high-resolution visualization[cite: 1]. By performing all geodetic computations entirely on the client side, TectoView bridges the gap between raw catalog data and structural interpretation within seconds—requiring no local installation, server uploads, or licensing fees[cite: 1].
 
-It is engineered to instantly produce publication-quality (Q1 journal standards) graphical outputs directly from your browser[cite: 1].
+It is engineered to instantly produce publication-quality graphical outputs directly from your browser[cite: 1].
 
 ## 🚀 Live Demo
 
