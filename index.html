@@ -20,8 +20,8 @@
           - JSZip (MIT or GPL-3.0)          https://stuk.github.io/jszip/
           - Tailwind CSS (MIT)              https://tailwindcss.com/
 
-        Map tiles by Esri (World Topographic Map / World Imagery) are used
-        for on-screen visualisation only and are not embedded in any export.
+        Map tiles by OpenStreetMap contributors (https://openstreetmap.org/copyright)
+        are used for on-screen visualisation only and are not embedded in any export.
         DEM data are fetched on demand from the OpenTopography SRTMGL1
         service (https://opentopography.org) under their data-use policy.
         ====================================================================
@@ -135,8 +135,9 @@
                 <summary class="flex justify-between items-center p-3 bg-slate-50 rounded-lg hover:bg-slate-100 font-bold text-slate-600 text-xs uppercase tracking-wide border border-transparent hover:border-slate-200 transition-all mb-2"><span>2. Profile Definition</span><span class="arrow">▼</span></summary>
                 <div class="px-2 pb-4">
                     <div class="flex justify-between items-center mb-3"><span class="text-[10px] text-slate-500">Swath Width (km):</span><input type="number" id="swath_width" value="20" class="w-16 p-1 border rounded text-right font-mono text-xs focus:outline-none text-blue-700 bg-blue-50 redraw-trigger"></div>
-                    <div class="mb-2 p-2 bg-slate-50 rounded border border-slate-100"><div class="text-[10px] font-bold text-blue-600 mb-1">Start Point (A)</div><div class="grid grid-cols-4 gap-1 mb-1"><input type="number" id="start_lat_deg" class="p-1 border rounded text-center text-xs manual-coord" value="38"><input type="number" id="start_lat_min" class="p-1 border rounded text-center text-xs manual-coord" value="30"><input type="number" id="start_lat_sec" class="p-1 border rounded text-center text-xs manual-coord" value="0"><select id="start_lat_dir" class="p-1 border rounded text-xs manual-coord"><option>N</option><option>S</option></select></div><div class="grid grid-cols-4 gap-1"><input type="number" id="start_lon_deg" class="p-1 border rounded text-center text-xs manual-coord" value="27"><input type="number" id="start_lon_min" class="p-1 border rounded text-center text-xs manual-coord" value="0"><input type="number" id="start_lon_sec" class="p-1 border rounded text-center text-xs manual-coord" value="0"><select id="start_lon_dir" class="p-1 border rounded text-xs manual-coord"><option>E</option><option>W</option></select></div></div>
-                    <div class="p-2 bg-slate-50 rounded border border-slate-100"><div class="text-[10px] font-bold text-blue-600 mb-1">End Point (A')</div><div class="grid grid-cols-4 gap-1 mb-1"><input type="number" id="end_lat_deg" class="p-1 border rounded text-center text-xs manual-coord" value="40"><input type="number" id="end_lat_min" class="p-1 border rounded text-center text-xs manual-coord" value="0"><input type="number" id="end_lat_sec" class="p-1 border rounded text-center text-xs manual-coord" value="0"><select id="end_lat_dir" class="p-1 border rounded text-xs manual-coord"><option>N</option><option>S</option></select></div><div class="grid grid-cols-4 gap-1"><input type="number" id="end_lon_deg" class="p-1 border rounded text-center text-xs manual-coord" value="33"><input type="number" id="end_lon_min" class="p-1 border rounded text-center text-xs manual-coord" value="0"><input type="number" id="end_lon_sec" class="p-1 border rounded text-center text-xs manual-coord" value="0"><select id="end_lon_dir" class="p-1 border rounded text-xs manual-coord"><option>E</option><option>W</option></select></div></div>
+                    <div class="flex items-center gap-2 mb-2"><input type="checkbox" id="coord_format_dd" class="w-3.5 h-3.5 text-blue-600 rounded focus:ring-blue-500 cursor-pointer"><label for="coord_format_dd" class="text-[10px] font-semibold text-slate-600 cursor-pointer">Use Decimal Degrees (DD) input</label></div>
+                    <div class="mb-2 p-2 bg-slate-50 rounded border border-slate-100"><div class="text-[10px] font-bold text-blue-600 mb-1">Start Point (A)</div><div class="dms-coord-group grid grid-cols-4 gap-1 mb-1"><input type="number" id="start_lat_deg" min="0" max="90" step="1" class="p-1 border rounded text-center text-xs manual-coord" value="38"><input type="number" id="start_lat_min" min="0" max="59" step="1" class="p-1 border rounded text-center text-xs manual-coord" value="30"><input type="number" id="start_lat_sec" min="0" max="59.999" step="any" class="p-1 border rounded text-center text-xs manual-coord" value="0"><select id="start_lat_dir" class="p-1 border rounded text-xs manual-coord"><option>N</option><option>S</option></select></div><div class="dms-coord-group grid grid-cols-4 gap-1"><input type="number" id="start_lon_deg" min="0" max="180" step="1" class="p-1 border rounded text-center text-xs manual-coord" value="27"><input type="number" id="start_lon_min" min="0" max="59" step="1" class="p-1 border rounded text-center text-xs manual-coord" value="0"><input type="number" id="start_lon_sec" min="0" max="59.999" step="any" class="p-1 border rounded text-center text-xs manual-coord" value="0"><select id="start_lon_dir" class="p-1 border rounded text-xs manual-coord"><option>E</option><option>W</option></select></div><div class="dd-coord-group hidden grid grid-cols-2 gap-1"><input type="number" id="start_lat_dd" min="-90" max="90" step="any" placeholder="Lat (DD)" class="p-1 border rounded text-center text-xs manual-coord-dd"><input type="number" id="start_lon_dd" min="-180" max="180" step="any" placeholder="Lon (DD)" class="p-1 border rounded text-center text-xs manual-coord-dd"></div></div>
+                    <div class="p-2 bg-slate-50 rounded border border-slate-100"><div class="text-[10px] font-bold text-blue-600 mb-1">End Point (A')</div><div class="dms-coord-group grid grid-cols-4 gap-1 mb-1"><input type="number" id="end_lat_deg" min="0" max="90" step="1" class="p-1 border rounded text-center text-xs manual-coord" value="40"><input type="number" id="end_lat_min" min="0" max="59" step="1" class="p-1 border rounded text-center text-xs manual-coord" value="0"><input type="number" id="end_lat_sec" min="0" max="59.999" step="any" class="p-1 border rounded text-center text-xs manual-coord" value="0"><select id="end_lat_dir" class="p-1 border rounded text-xs manual-coord"><option>N</option><option>S</option></select></div><div class="dms-coord-group grid grid-cols-4 gap-1"><input type="number" id="end_lon_deg" min="0" max="180" step="1" class="p-1 border rounded text-center text-xs manual-coord" value="33"><input type="number" id="end_lon_min" min="0" max="59" step="1" class="p-1 border rounded text-center text-xs manual-coord" value="0"><input type="number" id="end_lon_sec" min="0" max="59.999" step="any" class="p-1 border rounded text-center text-xs manual-coord" value="0"><select id="end_lon_dir" class="p-1 border rounded text-xs manual-coord"><option>E</option><option>W</option></select></div><div class="dd-coord-group hidden grid grid-cols-2 gap-1"><input type="number" id="end_lat_dd" min="-90" max="90" step="any" placeholder="Lat (DD)" class="p-1 border rounded text-center text-xs manual-coord-dd"><input type="number" id="end_lon_dd" min="-180" max="180" step="any" placeholder="Lon (DD)" class="p-1 border rounded text-center text-xs manual-coord-dd"></div></div>
                 </div>
             </details>
             <!-- 3. Graph Parameters -->
@@ -149,6 +150,13 @@
                 </div>
                     <div class="grid grid-cols-2 gap-3 mb-3"><div><label class="text-[10px] text-slate-500 block">Max Depth (km)</label><input type="number" id="max_depth" value="30" class="w-full p-1.5 border rounded font-mono text-sm redraw-trigger"></div><div><label class="text-[10px] text-slate-500 block">Vert. Exag.</label><input type="number" id="vertical_exaggeration" value="5" step="1" class="w-full p-1.5 border rounded font-mono text-sm redraw-trigger"></div><div><label class="text-[10px] text-slate-500 block">X-Axis Step</label><input type="number" id="x_increment" value="10" min="1" class="w-full p-1.5 border rounded font-mono text-sm redraw-trigger"></div><div><label class="text-[10px] text-slate-500 block">Y-Axis Step</label><input type="number" id="y_increment" value="5" min="1" class="w-full p-1.5 border rounded font-mono text-sm redraw-trigger"></div></div>
                     <div><label class="text-[10px] text-slate-500 block">Profile Length (km)</label><input type="text" id="max_distance" value="0" readonly class="w-full p-1.5 border rounded bg-slate-100 text-slate-500 font-mono text-sm"></div>
+                    <div class="mt-3 p-2 bg-slate-50 rounded border border-slate-200">
+                        <div class="flex items-center gap-2 mb-2"><input type="checkbox" id="time_filter_enabled" class="w-3.5 h-3.5 text-blue-600 rounded focus:ring-blue-500 cursor-pointer"><label for="time_filter_enabled" class="text-xs font-bold text-slate-600 cursor-pointer">Time Filter</label></div>
+                        <div id="time_filter_options" class="grid grid-cols-2 gap-2 hidden">
+                            <div><label class="text-[9px] text-slate-500 block mb-0.5">From</label><input type="datetime-local" id="time_filter_min" class="w-full p-1 border rounded text-xs"></div>
+                            <div><label class="text-[9px] text-slate-500 block mb-0.5">To</label><input type="datetime-local" id="time_filter_max" class="w-full p-1 border rounded text-xs"></div>
+                        </div>
+                    </div>
                 </div>
             </details>
             
@@ -156,12 +164,17 @@
             <details class="group">
                  <summary class="flex justify-between items-center p-3 bg-slate-50 rounded-lg hover:bg-slate-100 font-bold text-slate-600 text-xs uppercase tracking-wide border border-transparent hover:border-slate-200 transition-all mb-2"><span>4. Visual Style</span><span class="arrow">▼</span></summary>
                 <div class="px-2 pb-4">
-                     <div class="mb-3"><label class="text-[10px] text-slate-500 block mb-1 font-bold">Coloring Mode</label><select id="coloring_mode" class="w-full p-1.5 border rounded text-xs redraw-trigger bg-white"><option value="depth">By Depth (Gradient)</option><option value="time">By Time (Phase Split)</option></select></div>
-                     
+                     <div class="mb-3"><label class="text-[10px] text-slate-500 block mb-1 font-bold">Coloring Mode</label><select id="coloring_mode" class="w-full p-1.5 border rounded text-xs redraw-trigger bg-white"><option value="depth">By Depth (Gradient)</option><option value="time">By Time (Phase Split)</option><option value="time-gradient">By Time (Continuous Gradient)</option></select></div>
+
                      <div id="phase_options_container" class="mb-3 p-2 bg-slate-50 rounded border border-slate-200 hidden">
                          <label class="text-[10px] font-bold text-blue-600 block mb-1">Phase Split Settings</label>
                          <select id="phase_split_mode" class="w-full p-1.5 border rounded text-xs mb-2 bg-white redraw-trigger"><option value="auto">Auto (Find Second Largest Event)</option><option value="manual">Custom Date & Time</option></select>
                          <input type="datetime-local" id="manual_split_date" class="w-full p-1.5 border rounded text-xs hidden redraw-trigger">
+                     </div>
+
+                     <div id="time_gradient_options_container" class="mb-3 p-2 bg-slate-50 rounded border border-slate-200 hidden">
+                         <label class="text-[10px] font-bold text-blue-600 block mb-1">Time Gradient Colors</label>
+                         <div class="flex gap-2"><div class="flex-1"><label class="text-[9px] text-slate-500 block mb-1">Earliest Event</label><input type="color" id="time_early_color" value="#2563EB" class="w-full h-6 rounded cursor-pointer border-0 p-0 redraw-trigger"></div><div class="flex-1"><label class="text-[9px] text-slate-500 block mb-1">Latest Event</label><input type="color" id="time_late_color" value="#DC2626" class="w-full h-6 rounded cursor-pointer border-0 p-0 redraw-trigger"></div></div>
                      </div>
 
                      <div class="flex gap-2 mb-2"><div class="flex-1"><label class="text-[9px] text-slate-500 block mb-1">Shallow EQ (0km)</label><input type="color" id="shallow_eq_color" value="#FFFF00" class="w-full h-6 rounded cursor-pointer border-0 p-0 redraw-trigger"></div><div class="flex-1"><label class="text-[9px] text-slate-500 block mb-1">Deep EQ (Max D.)</label><input type="color" id="deep_eq_color" value="#DC143C" class="w-full h-6 rounded cursor-pointer border-0 p-0 redraw-trigger"></div></div>
@@ -209,14 +222,7 @@
                      <!-- FOCAL MECHANISMS SETTINGS -->
                      <div class="mt-3 p-2 bg-indigo-50 border border-indigo-100 rounded">
                          <div class="text-[10px] font-bold text-indigo-700 mb-2 block">Focal Mechanisms (Beachballs)</div>
-                         <div class="grid grid-cols-2 gap-2 mb-2">
-                             <div>
-                                 <label class="text-[9px] text-slate-500 block mb-0.5">Profile Layout</label>
-                                 <select id="fm_position" class="w-full p-1.5 border rounded text-[10px] bg-white redraw-trigger">
-                                     <option value="sky">Sky (Above Topo)</option>
-                                     <option value="insitu">In-situ (At Depth)</option>
-                                 </select>
-                             </div>
+                         <div class="mb-2">
                              <div>
                                  <label class="text-[9px] text-slate-500 block mb-0.5">Map Layout</label>
                                  <select id="fm_map_layout" class="w-full p-1.5 border rounded text-[10px] bg-white redraw-trigger">
@@ -247,6 +253,7 @@
                     </div>
                     <div class="grid grid-cols-2 gap-2 mt-2"><input type="text" id="x_label" value="Distance along Profile (km)" class="w-full p-1.5 border rounded text-xs redraw-trigger"><input type="text" id="y_label" value="Depth (km) / Elevation (m)" class="w-full p-1.5 border rounded text-xs redraw-trigger"></div>
                     <div class="flex items-center gap-2 mt-2"><input type="checkbox" id="show_legend" class="w-3.5 h-3.5 text-blue-600 redraw-trigger" checked><label for="show_legend" class="text-xs text-slate-600 cursor-pointer">Show Legend</label></div>
+                    <div class="mt-2"><label class="text-[10px] text-slate-600 block mb-0.5">Legend Position</label><select id="legend_position" class="w-full p-1.5 border rounded text-xs redraw-trigger bg-white"><option value="bottom-right">Bottom Right</option><option value="bottom-left">Bottom Left</option><option value="top-right">Top Right</option><option value="top-left">Top Left</option><option value="below-axis">Below Axis (Horizontal)</option></select></div>
                 </div>
             </details>
 
@@ -325,7 +332,7 @@
         const autoDemBtn = document.getElementById('auto_dem_btn');
         const otApiKeyInput = document.getElementById('ot_api_key');
 
-        const fmPositionSelect = document.getElementById('fm_position'), fmMapLayoutSelect = document.getElementById('fm_map_layout');
+        const fmMapLayoutSelect = document.getElementById('fm_map_layout');
         const fmScaleSlider = document.getElementById('fm_scale_slider'), fmScaleValueSpan = document.getElementById('fm_scale_value');
 
         const magnitudeSizingCheckbox = document.getElementById('magnitude_sizing');
@@ -344,6 +351,8 @@
         const swathWidthInput = document.getElementById('swath_width');
         const coloringModeSelect = document.getElementById('coloring_mode');
         const phaseOptionsContainer = document.getElementById('phase_options_container'), phaseSplitModeSelect = document.getElementById('phase_split_mode'), manualSplitDateInput = document.getElementById('manual_split_date');
+        const timeGradientOptionsContainer = document.getElementById('time_gradient_options_container');
+        const timeFilterEnabledCheckbox = document.getElementById('time_filter_enabled'), timeFilterOptions = document.getElementById('time_filter_options'), timeFilterMinInput = document.getElementById('time_filter_min'), timeFilterMaxInput = document.getElementById('time_filter_max');
         const trueScaleModeCheckbox = document.getElementById('true_scale_mode');
         const legendP1Input = document.getElementById('legend_p1_text'), legendP2Input = document.getElementById('legend_p2_text');
         const ms1Container = document.getElementById('ms1_container'), ms2Container = document.getElementById('ms2_container');
@@ -408,8 +417,12 @@
                     });
 
                     if(coloringModeSelect.value === 'time') phaseOptionsContainer.classList.remove('hidden'); else phaseOptionsContainer.classList.add('hidden');
+                    if(coloringModeSelect.value === 'time-gradient') timeGradientOptionsContainer.classList.remove('hidden'); else timeGradientOptionsContainer.classList.add('hidden');
                     if(phaseSplitModeSelect.value === 'manual') manualSplitDateInput.classList.remove('hidden'); else manualSplitDateInput.classList.add('hidden');
                     if (magnitudeSizingCheckbox.checked) magScalingOptions.classList.remove('hidden'); else magScalingOptions.classList.add('hidden');
+                    timeFilterOptions.classList.toggle('hidden', !timeFilterEnabledCheckbox.checked);
+                    refreshTimeFilterDisplay();
+                    applyCoordFormatVisibility();
 
                     if (startMarker && endMarker) {
                         const startLat = dmsInputsToDd('start_lat_deg', 'start_lat_min', 'start_lat_sec', 'start_lat_dir'); const startLon = dmsInputsToDd('start_lon_deg', 'start_lon_min', 'start_lon_sec', 'start_lon_dir');
@@ -565,11 +578,23 @@
         coloringModeSelect.addEventListener('change', (e) => {
             if(e.target.value === 'time') phaseOptionsContainer.classList.remove('hidden');
             else phaseOptionsContainer.classList.add('hidden');
+            if(e.target.value === 'time-gradient') timeGradientOptionsContainer.classList.remove('hidden');
+            else timeGradientOptionsContainer.classList.add('hidden');
         });
         phaseSplitModeSelect.addEventListener('change', (e) => {
             if(e.target.value === 'manual') manualSplitDateInput.classList.remove('hidden');
             else manualSplitDateInput.classList.add('hidden');
         });
+        function refreshTimeFilterDisplay() {
+            if (processedData.rawEarthquakes && processedData.rawEarthquakes.length > 0) renderEarthquakesOnMap(processedData.rawEarthquakes);
+            if (hasPlotData()) requestAnimationFrame(redrawChart);
+        }
+        timeFilterEnabledCheckbox.addEventListener('change', () => {
+            timeFilterOptions.classList.toggle('hidden', !timeFilterEnabledCheckbox.checked);
+            refreshTimeFilterDisplay();
+        });
+        timeFilterMinInput.addEventListener('change', refreshTimeFilterDisplay);
+        timeFilterMaxInput.addEventListener('change', refreshTimeFilterDisplay);
         magnitudeSizingCheckbox.addEventListener('change', (e) => {
             if (e.target.checked) magScalingOptions.classList.remove('hidden');
             else magScalingOptions.classList.add('hidden');
@@ -600,25 +625,30 @@
             return { x: Y, y: -X }; 
         }
 
-        function getHemispherePath(Nx, Ny, Nz) {
-            let len = Math.hypot(Nx, Ny); let ux, uy, uz = 0;
-            if (len < 1e-6) { ux = 1; uy = 0; } else { ux = -Ny / len; uy = Nx / len; }
-            
-            let vx = Ny*uz - Nz*uy; let vy = Nz*ux - Nx*uz; let vz = Nx*uy - Ny*ux;
-            if (vz < 0) { vx = -vx; vy = -vy; vz = -vz; }
-
-            let path = []; const STEPS = 45;
-            for (let i = 0; i <= STEPS; i++) {
-                let t = (i / STEPS) * Math.PI;
-                let px = ux * Math.cos(t) + vx * Math.sin(t); let py = uy * Math.cos(t) + vy * Math.sin(t); let pz = uz * Math.cos(t) + vz * Math.sin(t);
-                path.push(getStereoProj(px, py, pz));
+        // Returns the projected boundary polygon of the focal-sphere region { lower-hemisphere ray g : pole·g > 0 },
+        // where pole = (Px,Py,Pz) is a unit vector in (North, East, Down). Fed with the fault normal and the slip
+        // vector and combined with an even-odd fill, this yields physically correct compressional/dilatational
+        // quadrants for ANY mechanism (strike-slip, normal, thrust, oblique), verified against the P-wave
+        // radiation pattern u = (n·g)(s·g).
+        function getHemispherePath(Px, Py, Pz) {
+            const L = Math.hypot(Px, Py); const STEPS = 96; let path = [];
+            if (L < 1e-9) {
+                // Pole vertical: region is the whole lower hemisphere (full disk) if it points down, else empty.
+                if (Pz > 0) { for (let i = 0; i <= STEPS; i++) { const a = 2*Math.PI*i/STEPS; path.push(getStereoProj(Math.cos(a), Math.sin(a), 0)); } }
+                return path;
             }
-            let start_angle = Math.atan2(-uy, -ux); let dir = 1; let mid_angle = start_angle + dir * Math.PI / 2;
-            let mx = Math.cos(mid_angle), my = Math.sin(mid_angle);
-            if (mx * Nx + my * Ny < 0) dir = -1;
-
+            // u: horizontal unit vector perpendicular to the pole; w = pole x u (unit, downward component = L > 0)
+            const ux = -Py/L, uy = Px/L;
+            const wx = -Pz*Px/L, wy = -Pz*Py/L, wz = L;
+            // Nodal-plane semicircle within the lower hemisphere (t: 0..pi), running from u to -u
+            for (let i = 0; i <= STEPS; i++) {
+                const t = Math.PI*i/STEPS;
+                path.push(getStereoProj(ux*Math.cos(t)+wx*Math.sin(t), uy*Math.cos(t)+wy*Math.sin(t), wz*Math.sin(t)));
+            }
+            // Close along the equator, on the half where pole·g > 0 (from -u back to u)
+            const aU = Math.atan2(uy, ux);
             for (let i = 1; i <= STEPS; i++) {
-                let a = start_angle + dir * Math.PI * (i / STEPS);
+                const a = (aU + Math.PI) + Math.PI*i/STEPS;
                 path.push(getStereoProj(Math.cos(a), Math.sin(a), 0));
             }
             return path;
@@ -626,10 +656,11 @@
 
         function getBeachballPaths(strike, dip, rake) {
             let phi = strike * Math.PI / 180; let delta = dip * Math.PI / 180; let lam = rake * Math.PI / 180;
+            // Fault normal n and slip vector s in (North, East, Down), standard double-couple convention
             let Nx = -Math.sin(delta) * Math.sin(phi); let Ny =  Math.sin(delta) * Math.cos(phi); let Nz = -Math.cos(delta);
-            let Sx = Math.cos(lam)*Math.cos(phi) - Math.sin(lam)*Math.cos(delta)*Math.sin(phi);
-            let Sy = Math.cos(lam)*Math.sin(phi) + Math.sin(lam)*Math.cos(delta)*Math.cos(phi);
-            let Sz = Math.sin(lam)*Math.sin(delta);
+            let Sx = Math.cos(lam)*Math.cos(phi) + Math.sin(lam)*Math.cos(delta)*Math.sin(phi);
+            let Sy = Math.cos(lam)*Math.sin(phi) - Math.sin(lam)*Math.cos(delta)*Math.cos(phi);
+            let Sz = -Math.sin(lam)*Math.sin(delta);
             return { path1: getHemispherePath(Nx, Ny, Nz), path2: getHemispherePath(Sx, Sy, Sz) };
         }
 
@@ -645,13 +676,50 @@
             ctx.beginPath(); ctx.arc(x, y, radius, 0, 2*Math.PI); ctx.strokeStyle = 'rgba(0,0,0,0.8)'; ctx.stroke();
         }
 
+        function updateMarkersFromManualInputs() {
+            const startLat = dmsInputsToDd('start_lat_deg', 'start_lat_min', 'start_lat_sec', 'start_lat_dir'); const startLon = dmsInputsToDd('start_lon_deg', 'start_lon_min', 'start_lon_sec', 'start_lon_dir');
+            const endLat = dmsInputsToDd('end_lat_deg', 'end_lat_min', 'end_lat_sec', 'end_lat_dir'); const endLon = dmsInputsToDd('end_lon_deg', 'end_lon_min', 'end_lon_sec', 'end_lon_dir');
+            if(startMarker) startMarker.setLatLng([startLat, startLon]); if(endMarker) endMarker.setLatLng([endLat, endLon]);
+            updateProfileLineOnMap();
+        }
         manualCoordInputs.forEach(input => {
-            input.addEventListener('change', () => {
-                const startLat = dmsInputsToDd('start_lat_deg', 'start_lat_min', 'start_lat_sec', 'start_lat_dir'); const startLon = dmsInputsToDd('start_lon_deg', 'start_lon_min', 'start_lon_sec', 'start_lon_dir');
-                const endLat = dmsInputsToDd('end_lat_deg', 'end_lat_min', 'end_lat_sec', 'end_lat_dir'); const endLon = dmsInputsToDd('end_lon_deg', 'end_lon_min', 'end_lon_sec', 'end_lon_dir');
-                if(startMarker) startMarker.setLatLng([startLat, startLon]); if(endMarker) endMarker.setLatLng([endLat, endLon]);
-                updateProfileLineOnMap();
-            });
+            input.addEventListener('change', updateMarkersFromManualInputs);
+        });
+
+        const coordFormatDdCheckbox = document.getElementById('coord_format_dd');
+        const dmsCoordGroups = document.querySelectorAll('.dms-coord-group');
+        const ddCoordGroups = document.querySelectorAll('.dd-coord-group');
+        const ddFieldMap = { start_lat_dd: ['start_lat_deg', 'start_lat_min', 'start_lat_sec', 'start_lat_dir', true], start_lon_dd: ['start_lon_deg', 'start_lon_min', 'start_lon_sec', 'start_lon_dir', false], end_lat_dd: ['end_lat_deg', 'end_lat_min', 'end_lat_sec', 'end_lat_dir', true], end_lon_dd: ['end_lon_deg', 'end_lon_min', 'end_lon_sec', 'end_lon_dir', false] };
+
+        function ddInputToDms(ddId) {
+            const [degId, minId, secId, dirId, isLat] = ddFieldMap[ddId];
+            const ddEl = document.getElementById(ddId);
+            let dd = parseFloat(ddEl.value); if (isNaN(dd)) dd = 0;
+            const maxAbs = isLat ? 90 : 180; dd = Math.min(maxAbs, Math.max(-maxAbs, dd)); ddEl.value = dd;
+            const { deg, min, sec, dir } = ddToDmsObject(dd, isLat);
+            document.getElementById(degId).value = deg; document.getElementById(minId).value = min; document.getElementById(secId).value = sec; document.getElementById(dirId).value = dir;
+        }
+
+        function applyCoordFormatVisibility() {
+            const isDD = coordFormatDdCheckbox.checked;
+            if (isDD) {
+                document.getElementById('start_lat_dd').value = dmsInputsToDd('start_lat_deg', 'start_lat_min', 'start_lat_sec', 'start_lat_dir').toFixed(6);
+                document.getElementById('start_lon_dd').value = dmsInputsToDd('start_lon_deg', 'start_lon_min', 'start_lon_sec', 'start_lon_dir').toFixed(6);
+                document.getElementById('end_lat_dd').value = dmsInputsToDd('end_lat_deg', 'end_lat_min', 'end_lat_sec', 'end_lat_dir').toFixed(6);
+                document.getElementById('end_lon_dd').value = dmsInputsToDd('end_lon_deg', 'end_lon_min', 'end_lon_sec', 'end_lon_dir').toFixed(6);
+            }
+            dmsCoordGroups.forEach(g => g.classList.toggle('hidden', isDD));
+            ddCoordGroups.forEach(g => g.classList.toggle('hidden', !isDD));
+        }
+
+        coordFormatDdCheckbox.addEventListener('change', () => {
+            if (!coordFormatDdCheckbox.checked) { Object.keys(ddFieldMap).forEach(ddInputToDms); }
+            applyCoordFormatVisibility();
+            updateMarkersFromManualInputs();
+        });
+
+        document.querySelectorAll('.manual-coord-dd').forEach(input => {
+            input.addEventListener('change', () => { ddInputToDms(input.id); updateMarkersFromManualInputs(); });
         });
 
         fontScaleSlider.addEventListener('input', (e) => { if(fontScaleValueSpan) fontScaleValueSpan.textContent = `${parseFloat(e.target.value).toFixed(1)}x`; if(hasPlotData()) requestAnimationFrame(redrawChart); });
@@ -777,6 +845,9 @@
             const maxDepth = parseFloat(document.getElementById('max_depth').value);
             const shallowRgb = hexToRgb(shallowEqColorInput.value);
             const deepRgb = hexToRgb(deepEqColorInput.value);
+            const timeEarlyRgb = hexToRgb(document.getElementById('time_early_color').value);
+            const timeLateRgb = hexToRgb(document.getElementById('time_late_color').value);
+            const { minTime: tgMinTime, timeSpan: tgTimeSpan } = getTimeRange(processedData.rawEarthquakes);
 
             const layersArray = [];
             eqFeatureGroup.eachLayer(layer => { layersArray.push(layer); });
@@ -798,6 +869,8 @@
                         let color = '#3b82f6';
                         if (coloringMode === 'time') {
                             color = (hasTwoPhases && isPhase2) ? '#ef4444' : '#94a3b8';
+                        } else if (coloringMode === 'time-gradient') {
+                            color = getTimeGradientColor(eq, tgMinTime, tgTimeSpan, timeEarlyRgb, timeLateRgb);
                         } else {
                             const depthFactor = Math.min(eq.depth / maxDepth, 1.0);
                             color = interpolateColor(shallowRgb, deepRgb, depthFactor);
@@ -820,6 +893,8 @@
                     let color = '#3b82f6';
                     if (coloringMode === 'time') {
                         color = (hasTwoPhases && isPhase2) ? '#ef4444' : '#94a3b8';
+                    } else if (coloringMode === 'time-gradient') {
+                        color = getTimeGradientColor(eq, tgMinTime, tgTimeSpan, timeEarlyRgb, timeLateRgb);
                     } else {
                         const depthFactor = Math.min(eq.depth / maxDepth, 1.0);
                         color = interpolateColor(shallowRgb, deepRgb, depthFactor);
@@ -849,6 +924,7 @@
         function renderEarthquakesOnMap(earthquakes) {
             if (!eqFeatureGroup) return;
             eqFeatureGroup.clearLayers();
+            earthquakes = filterByTimeRange(earthquakes);
             if (!earthquakes || earthquakes.length === 0) return;
 
             const manualOn = (coloringModeSelect.value === 'time' && phaseSplitModeSelect.value === 'manual' && manualSplitDateInput.value);
@@ -872,8 +948,11 @@
             const maxDepth = parseFloat(document.getElementById('max_depth').value);
             const shallowRgb = hexToRgb(shallowEqColorInput.value);
             const deepRgb = hexToRgb(deepEqColorInput.value);
+            const timeEarlyRgb = hexToRgb(document.getElementById('time_early_color').value);
+            const timeLateRgb = hexToRgb(document.getElementById('time_late_color').value);
+            const { minTime: tgMinTime, timeSpan: tgTimeSpan } = getTimeRange(processedData.rawEarthquakes);
 
-            const limit = 5000; 
+            const limit = 5000;
             const step = Math.ceil(earthquakes.length / limit);
 
             let sortedEqs = [...earthquakes].sort((a, b) => (a.mag || 0) - (b.mag || 0));
@@ -888,6 +967,8 @@
                         let color = '#3b82f6';
                         if (coloringMode === 'time') {
                             color = (hasTwoPhases && isPhase2) ? '#ef4444' : '#94a3b8';
+                        } else if (coloringMode === 'time-gradient') {
+                            color = getTimeGradientColor(eq, tgMinTime, tgTimeSpan, timeEarlyRgb, timeLateRgb);
                         } else {
                             const depthFactor = Math.min(eq.depth / maxDepth, 1.0);
                             color = interpolateColor(shallowRgb, deepRgb, depthFactor);
@@ -915,6 +996,8 @@
                 let color = '#3b82f6';
                 if (coloringMode === 'time') {
                     color = (hasTwoPhases && isPhase2) ? '#ef4444' : '#94a3b8';
+                } else if (coloringMode === 'time-gradient') {
+                    color = getTimeGradientColor(eq, tgMinTime, tgTimeSpan, timeEarlyRgb, timeLateRgb);
                 } else {
                     const depthFactor = Math.min(eq.depth / maxDepth, 1.0);
                     color = interpolateColor(shallowRgb, deepRgb, depthFactor);
@@ -1167,9 +1250,13 @@
         function reciprocalCompass(bearing) { return bearingToCompass((bearing + 180) % 360); }
         function getDestinationPoint(lat, lon, distanceKm, bearing) { const R = 6371; const brng = toRad(bearing); const lat1 = toRad(lat); const lon1 = toRad(lon); const lat2 = Math.asin(Math.sin(lat1) * Math.cos(distanceKm/R) + Math.cos(lat1) * Math.sin(distanceKm/R) * Math.cos(brng)); const lon2 = lon1 + Math.atan2(Math.sin(brng) * Math.sin(distanceKm/R) * Math.cos(lat1), Math.cos(distanceKm/R) - Math.sin(lat1) * Math.sin(lat2)); return { lat: toDeg(lat2), lng: toDeg(lon2) }; }
         function isPointInPolygon(point, polygon) { let inside = false; for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) { const intersect = ((polygon[i].lat > point.lat) !== (polygon[j].lat > point.lat)) && (point.lon < (polygon[j].lon - polygon[i].lon) * (point.lat - polygon[i].lat) / (polygon[j].lat - polygon[i].lat) + polygon[i].lon); if (intersect) inside = !inside; } return inside; }
-        function dmsInputsToDd(degId, minId, secId, dirId){ const deg = parseFloat(document.getElementById(degId).value) || 0; const min = parseFloat(document.getElementById(minId).value) || 0; const sec = parseFloat(document.getElementById(secId).value) || 0; const dir = document.getElementById(dirId).value; let dd = deg + min / 60 + sec / 3600; if (dir === 'S' || dir === 'W') dd *= -1; return dd; }
+        function clampDmsField(id, min, max) { const el = document.getElementById(id); if (!el) return min; let v = parseFloat(el.value); if (isNaN(v)) v = 0; const clamped = Math.min(max, Math.max(min, v)); if (clamped !== v) el.value = clamped; return clamped; }
+        function dmsInputsToDd(degId, minId, secId, dirId){ const degMax = degId.includes('lat') ? 90 : 180; const deg = clampDmsField(degId, 0, degMax); const min = clampDmsField(minId, 0, 59); const sec = clampDmsField(secId, 0, 59.999); const dir = document.getElementById(dirId).value; let dd = deg + min / 60 + sec / 3600; if (dir === 'S' || dir === 'W') dd *= -1; return dd; }
         function findLineIntersection(p1, p2, p3, p4) { const x1 = p1.lon, y1 = p1.lat, x2 = p2.lon, y2 = p2.lat, x3 = p3.lon, y3 = p3.lat, x4 = p4.lon, y4 = p4.lat; const den = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4); if (den === 0) return null; const t = ((x1 - x3) * (y3 - y4) - (y1 - y3) * (x3 - x4)) / den; const u = -((x1 - x2) * (y1 - y3) - (y1 - y2) * (x1 - x3)) / den; if (t > 0 && t < 1 && u > 0 && u < 1) { return { lon: x1 + t * (x2 - x1), lat: y1 + t * (y2 - y1) }; } return null; }
         function interpolateColor(color1, color2, factor) { let result = color1.slice(); for (let i = 0; i < 3; i++) { result[i] = Math.round(result[i] + factor * (color2[i] - result[i])); } return `rgb(${result[0]}, ${result[1]}, ${result[2]})`; }
+        function getTimeRange(earthquakes) { const ts = (earthquakes || []).map(e => e.timestamp).filter(t => t != null && !isNaN(t)); if (!ts.length) return { minTime: 0, timeSpan: 1 }; const minTime = Math.min(...ts), maxTime = Math.max(...ts); return { minTime, timeSpan: (maxTime - minTime) || 1 }; }
+        function getTimeGradientColor(eq, minTime, timeSpan, earlyRgb, lateRgb) { const valid = eq.timestamp != null && !isNaN(eq.timestamp); const t = valid ? Math.min(Math.max((eq.timestamp - minTime) / timeSpan, 0), 1) : 0; return interpolateColor(earlyRgb, lateRgb, t); }
+        function filterByTimeRange(earthquakes) { const enabled = document.getElementById('time_filter_enabled').checked; if (!enabled) return (earthquakes || []).slice(); const minVal = document.getElementById('time_filter_min').value; const maxVal = document.getElementById('time_filter_max').value; const minT = minVal ? new Date(minVal).getTime() : -Infinity; const maxT = maxVal ? new Date(maxVal).getTime() : Infinity; return (earthquakes || []).filter(eq => eq.timestamp != null && !isNaN(eq.timestamp) && eq.timestamp >= minT && eq.timestamp <= maxT); }
         function hexToRgb(hex) { let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex); return result ? [ parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16) ] : null; }
         
         const parseGenericCoordFile = (content) => content.split('\n').map(line => { if (!line.trim()) return null; const parts = line.trim().split(/\s+/); const potentialDMS = parts.join(' '); const lonMatch = potentialDMS.match(/(\d+°\s*\d+'\s*[\d\.]+"?\s*[EW])/i); const latMatch = potentialDMS.match(/(\d+°\s*\d+'\s*[\d\.]+"?\s*[NS])/i); let lon, lat; if (lonMatch && latMatch) { lon = parseCoordinate(lonMatch[0]); lat = parseCoordinate(latMatch[0]); } else if (parts.length >= 2) { lon = parseCoordinate(parts[0]); lat = parseCoordinate(parts[1]); } else { return null; } if (isNaN(lon) || isNaN(lat)) return null; return { lon, lat }; }).filter(Boolean);
@@ -1189,7 +1276,7 @@
 
         function handleMarkerDrag(e) { updateDmsInputsFromLatLng(e.target.getLatLng(), e.target === startMarker ? 'start' : 'end'); updateProfileLineOnMap(); }
         function handleMarkerDragEnd(e) { handleMarkerDrag(e); }
-        function updateDmsInputsFromLatLng(latlng, type) { const latDms = ddToDmsObject(latlng.lat, true); const lonDms = ddToDmsObject(latlng.lng, false); document.getElementById(`${type}_lat_deg`).value = latDms.deg; document.getElementById(`${type}_lat_min`).value = latDms.min; document.getElementById(`${type}_lat_sec`).value = latDms.sec; document.getElementById(`${type}_lat_dir`).value = latDms.dir; document.getElementById(`${type}_lon_deg`).value = lonDms.deg; document.getElementById(`${type}_lon_min`).value = lonDms.min; document.getElementById(`${type}_lon_sec`).value = lonDms.sec; document.getElementById(`${type}_lon_dir`).value = lonDms.dir; }
+        function updateDmsInputsFromLatLng(latlng, type) { const latDms = ddToDmsObject(latlng.lat, true); const lonDms = ddToDmsObject(latlng.lng, false); document.getElementById(`${type}_lat_deg`).value = latDms.deg; document.getElementById(`${type}_lat_min`).value = latDms.min; document.getElementById(`${type}_lat_sec`).value = latDms.sec; document.getElementById(`${type}_lat_dir`).value = latDms.dir; document.getElementById(`${type}_lon_deg`).value = lonDms.deg; document.getElementById(`${type}_lon_min`).value = lonDms.min; document.getElementById(`${type}_lon_sec`).value = lonDms.sec; document.getElementById(`${type}_lon_dir`).value = lonDms.dir; const ddLatEl = document.getElementById(`${type}_lat_dd`); if (ddLatEl) ddLatEl.value = latlng.lat.toFixed(6); const ddLonEl = document.getElementById(`${type}_lon_dd`); if (ddLonEl) ddLonEl.value = latlng.lng.toFixed(6); }
         
         function updateProfileLineOnMap() { 
             if (profileLineLayer) profileLineLayer.remove(); if (swathLayer) swathLayer.remove();
@@ -1203,12 +1290,12 @@
             } 
         }
         
-        function getChartState() { return { maxDepth: parseFloat(document.getElementById('max_depth').value), maxDistance: parseFloat(document.getElementById('max_distance').value), verticalExaggeration: parseFloat(document.getElementById('vertical_exaggeration').value), yIncrement: parseInt(document.getElementById('y_increment').value), basePointSize: parseFloat(document.getElementById('point_size_slider').value), magnitudeSizing: magnitudeSizingCheckbox.checked, coloringMode: coloringModeSelect.value, fmPosition: fmPositionSelect.value, fmScaleMulti: parseFloat(fmScaleSlider.value), trueScale: trueScaleModeCheckbox ? trueScaleModeCheckbox.checked : false, scale: 1 }; }
+        function getChartState() { return { maxDepth: parseFloat(document.getElementById('max_depth').value), maxDistance: parseFloat(document.getElementById('max_distance').value), verticalExaggeration: parseFloat(document.getElementById('vertical_exaggeration').value), yIncrement: parseInt(document.getElementById('y_increment').value), basePointSize: parseFloat(document.getElementById('point_size_slider').value), magnitudeSizing: magnitudeSizingCheckbox.checked, coloringMode: coloringModeSelect.value, fmScaleMulti: parseFloat(fmScaleSlider.value), trueScale: trueScaleModeCheckbox ? trueScaleModeCheckbox.checked : false, scale: 1 }; }
         
         function handleCanvasMouseMove(e, chartState, previewScale) {
             const { earthquakes, focalMechs, topography, faults } = processedData;
             if (!hasPlotData()) return;
-            const { maxDepth, maxDistance, verticalExaggeration, yIncrement, basePointSize, magnitudeSizing, fmPosition, fmScaleMulti, trueScale } = chartState;
+            const { maxDepth, maxDistance, verticalExaggeration, yIncrement, basePointSize, magnitudeSizing, fmScaleMulti, trueScale } = chartState;
             const scale = previewScale;
             const canvas = e.target; const rect = canvas.getBoundingClientRect(); 
             const scaleX = canvas.width / rect.width; const scaleY = canvas.height / rect.height;
@@ -1230,7 +1317,7 @@
                 for (let i = focalMechs.length - 1; i >= 0; i--) {
                     const fm = focalMechs[i];
                     const x = mapX(fm.distanceKm);
-                    let y; if (fmPosition === 'sky') { y = padding.top + 25 * scale + (i % 3) * 35 * scale; } else { y = mapY(-fm.depth); }
+                    let y = padding.top + 25 * scale + (i % 3) * 35 * scale;
                     let hitRadius = basePointSize * 1.0 * scale * fmScaleMulti;
                     if (magnitudeSizing && fm.mag) { hitRadius = evaluateRadius(fm.mag, basePointSize) * 0.75 * scale * fmScaleMulti; }
                     if (Math.hypot(mouseX - x, mouseY - y) < hitRadius + (2 * scale) + 3) {
@@ -1456,16 +1543,18 @@
             const chartState = getChartState(); 
             
             const totalWidth = 1200;
-            let chartHeight = 600;
+            const belowAxisLegendPreview = showLegendCheckbox.checked && document.getElementById('legend_position').value === 'below-axis';
+            const belowAxisExtraPreview = belowAxisLegendPreview ? (160 * parseFloat(fontScaleSlider.value)) : 0;
+            let chartHeight = 600 + belowAxisExtraPreview;
 
             if (chartState.trueScale) {
                 const VE = chartState.verticalExaggeration;
                 const maxRawElevationKm = processedData.topography.length > 0 ? Math.max(...processedData.topography.map(p => p.elevation)) / 1000 : 0;
                 const activeScale = 1 * parseFloat(fontScaleSlider.value);
-                const padding = { top: 80 * activeScale, right: 40 * activeScale, bottom: 60 * activeScale, left: 60 * activeScale };
-                const drawWidth = totalWidth - padding.left - padding.right; 
-                const safeMaxDistance = Math.max(chartState.maxDistance, 0.001); 
-                const rangeY = (maxRawElevationKm * VE) + chartState.maxDepth; 
+                const padding = { top: 80 * activeScale, right: 40 * activeScale, bottom: (belowAxisLegendPreview ? 220 : 60) * activeScale, left: 60 * activeScale };
+                const drawWidth = totalWidth - padding.left - padding.right;
+                const safeMaxDistance = Math.max(chartState.maxDistance, 0.001);
+                const rangeY = (maxRawElevationKm * VE) + chartState.maxDepth;
                 const pxPerKm = drawWidth / safeMaxDistance;
                 chartHeight = padding.top + (rangeY * pxPerKm) + padding.bottom;
             }
@@ -1496,7 +1585,7 @@
         }
 
         function initMap() { 
-            mapContainer.classList.remove('hidden'); map = L.map('map-container', { zoomSnap: 0.25, zoomDelta: 0.25, zoomControl: false }).setView([39, 35], 5); L.control.zoom({ position: 'topright' }).addTo(map); map.createPane('earthquakes'); map.getPane('earthquakes').style.zIndex = 400; map.createPane('polygons'); map.getPane('polygons').style.zIndex = 410; map.createPane('focalmechs'); map.getPane('focalmechs').style.zIndex = 500; map.createPane('faults'); map.getPane('faults').style.zIndex = 650; map.createPane('profileLine'); map.getPane('profileLine').style.zIndex = 700; const esriTopo = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', { attribution: 'Esri' }); esriTopo.addTo(map); featureGroup = L.featureGroup({ pane: 'polygons' }).addTo(map); faultGroup = L.featureGroup({ pane: 'faults' }).addTo(map); eqFeatureGroup = L.featureGroup({ pane: 'earthquakes' }).addTo(map); fmFeatureGroup = L.featureGroup({ pane: 'focalmechs' }).addTo(map); const startLat = dmsInputsToDd('start_lat_deg', 'start_lat_min', 'start_lat_sec', 'start_lat_dir'), startLon = dmsInputsToDd('start_lon_deg', 'start_lon_min', 'start_lon_sec', 'start_lon_dir'); const endLat = dmsInputsToDd('end_lat_deg', 'end_lat_min', 'end_lat_sec', 'end_lat_dir'), endLon = dmsInputsToDd('end_lon_deg', 'end_lon_min', 'end_lon_sec', 'end_lon_dir'); const createLabelIcon = (label) => L.divIcon({ className: 'bg-blue-600 text-white font-bold rounded-full flex items-center justify-center border-2 border-white shadow-md', html: label, iconSize: [24, 24], iconAnchor: [12, 12] }); startMarker = L.marker([startLat, startLon], { draggable: true, icon: createLabelIcon('A') }).addTo(map); endMarker = L.marker([endLat, endLon], { draggable: true, icon: createLabelIcon("A'") }).addTo(map); map.fitBounds(L.featureGroup([startMarker, endMarker]).getBounds().pad(0.1)); 
+            mapContainer.classList.remove('hidden'); map = L.map('map-container', { zoomSnap: 0.25, zoomDelta: 0.25, zoomControl: false }).setView([39, 35], 5); L.control.zoom({ position: 'topright' }).addTo(map); map.createPane('earthquakes'); map.getPane('earthquakes').style.zIndex = 400; map.createPane('polygons'); map.getPane('polygons').style.zIndex = 410; map.createPane('focalmechs'); map.getPane('focalmechs').style.zIndex = 500; map.createPane('faults'); map.getPane('faults').style.zIndex = 650; map.createPane('profileLine'); map.getPane('profileLine').style.zIndex = 700; const osmBasemap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors', maxZoom: 19 }); osmBasemap.addTo(map); featureGroup = L.featureGroup({ pane: 'polygons' }).addTo(map); faultGroup = L.featureGroup({ pane: 'faults' }).addTo(map); eqFeatureGroup = L.featureGroup({ pane: 'earthquakes' }).addTo(map); fmFeatureGroup = L.featureGroup({ pane: 'focalmechs' }).addTo(map); const startLat = dmsInputsToDd('start_lat_deg', 'start_lat_min', 'start_lat_sec', 'start_lat_dir'), startLon = dmsInputsToDd('start_lon_deg', 'start_lon_min', 'start_lon_sec', 'start_lon_dir'); const endLat = dmsInputsToDd('end_lat_deg', 'end_lat_min', 'end_lat_sec', 'end_lat_dir'), endLon = dmsInputsToDd('end_lon_deg', 'end_lon_min', 'end_lon_sec', 'end_lon_dir'); const createLabelIcon = (label) => L.divIcon({ className: 'bg-blue-600 text-white font-bold rounded-full flex items-center justify-center border-2 border-white shadow-md', html: label, iconSize: [24, 24], iconAnchor: [12, 12] }); startMarker = L.marker([startLat, startLon], { draggable: true, icon: createLabelIcon('A') }).addTo(map); endMarker = L.marker([endLat, endLon], { draggable: true, icon: createLabelIcon("A'") }).addTo(map); map.fitBounds(L.featureGroup([startMarker, endMarker]).getBounds().pad(0.1)); 
             startMarker.on('drag', handleMarkerDrag); startMarker.on('dragend', handleMarkerDragEnd); endMarker.on('drag', handleMarkerDrag); endMarker.on('dragend', handleMarkerDragEnd);
             updateProfileLineOnMap(); setTimeout(() => { map.invalidateSize(); }, 100); window.addEventListener('resize', () => { map.invalidateSize(); if(hasPlotData()) redrawChart(); }); 
         }
@@ -1582,7 +1671,9 @@
                 }
 
                 const gap = 30 * scale;
-                let chartHeight = 600 * scale;
+                const belowAxisLegendExport = showLegendCheckbox.checked && document.getElementById('legend_position').value === 'below-axis';
+                const belowAxisExtraExport = belowAxisLegendExport ? (160 * scale * fontScale) : 0;
+                let chartHeight = 600 * scale + belowAxisExtraExport;
 
                 if (trueScaleModeCheckbox && trueScaleModeCheckbox.checked) {
                     const maxDepth = parseFloat(document.getElementById('max_depth').value);
@@ -1590,7 +1681,7 @@
                     const VE = parseFloat(document.getElementById('vertical_exaggeration').value);
                     const maxRawElevationKm = processedData.topography.length > 0 ? Math.max(...processedData.topography.map(p => p.elevation)) / 1000 : 0;
                     const activeScale = scale * fontScale;
-                    const padding = { top: 80 * activeScale, right: 40 * activeScale, bottom: 60 * activeScale, left: 60 * activeScale };
+                    const padding = { top: 80 * activeScale, right: 40 * activeScale, bottom: (belowAxisLegendExport ? 220 : 60) * activeScale, left: 60 * activeScale };
                     const drawWidth = totalWidth - padding.left - padding.right;
                     const safeMaxDistance = Math.max(maxDistance, 0.001);
                     const rangeY = (maxRawElevationKm * VE) + maxDepth;
@@ -1758,19 +1849,24 @@
             const deepEqColor = document.getElementById('deep_eq_color').value;
             const shallowRgb = hexToRgb(shallowEqColor);
             const deepRgb = hexToRgb(deepEqColor);
+            const timeEarlyRgb = hexToRgb(document.getElementById('time_early_color').value);
+            const timeLateRgb = hexToRgb(document.getElementById('time_late_color').value);
+            const { minTime: tgMinTime, timeSpan: tgTimeSpan } = getTimeRange(processedData.rawEarthquakes);
 
-            let sortedMapEQ = [...processedData.earthquakes].sort((a,b) => (a.mag||0) - (b.mag||0));
+            let sortedMapEQ = filterByTimeRange(processedData.earthquakes).sort((a,b) => (a.mag||0) - (b.mag||0));
 
             sortedMapEQ.forEach(eq => { 
                 if(eq.isMainshock) return; 
                 const pos = project(eq.lat, eq.lon); 
                 if(pos.x < pad.l || pos.x > pad.l + mapW || pos.y < pad.t || pos.y > pad.t + mapH) return; 
                 
-                let color; 
-                if(coloringMode === 'time' && processedData.hasTwoPhases) { 
-                    color = eq.isPhase2 ? 'rgba(239, 68, 68, 1)' : 'rgba(148, 163, 184, 1)'; 
+                let color;
+                if(coloringMode === 'time' && processedData.hasTwoPhases) {
+                    color = eq.isPhase2 ? 'rgba(239, 68, 68, 1)' : 'rgba(148, 163, 184, 1)';
                 } else if(coloringMode === 'time' && !processedData.hasTwoPhases) {
                     color = 'rgba(59, 130, 246, 1)';
+                } else if (coloringMode === 'time-gradient') {
+                    color = getTimeGradientColor(eq, tgMinTime, tgTimeSpan, timeEarlyRgb, timeLateRgb);
                 } else {
                     const depthFactor = Math.min(eq.depth / maxDepth, 1.0);
                     color = interpolateColor(shallowRgb, deepRgb, depthFactor);
@@ -1841,6 +1937,8 @@
                         color = eq.isPhase2 ? 'rgba(239, 68, 68, 1)' : 'rgba(148, 163, 184, 1)';
                     } else if (coloringMode === 'time' && !processedData.hasTwoPhases) {
                         color = 'rgba(59, 130, 246, 1)';
+                    } else if (coloringMode === 'time-gradient') {
+                        color = getTimeGradientColor(eq, tgMinTime, tgTimeSpan, timeEarlyRgb, timeLateRgb);
                     } else {
                         const depthFactor = Math.min(eq.depth / maxDepth, 1.0);
                         color = interpolateColor(shallowRgb, deepRgb, depthFactor);
@@ -1897,9 +1995,142 @@
             ctx.save(); ctx.translate(pad.l - 65*scale - 12*scale*fScale, pad.t + mapH/2); ctx.rotate(-Math.PI/2); ctx.textAlign = "center"; ctx.fillText("Latitude (°N)", 0, 0); ctx.restore(); ctx.textAlign = "right"; ctx.textBaseline="middle"; for(let i=0; i<=5; i++) { const lat = minLat + i*latStep; const y = pad.t + mapH - (i/5)*mapH; ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(pad.l + 5*scale, y); ctx.stroke(); ctx.fillText(lat.toFixed(2), pad.l - 8*scale, y); }
         }
 
+        function drawHorizontalLegend(ctx, scale, settings, fontName, opts) {
+            const { padding, chartWidth, maxDepth, coloringMode, magnitudeSizing, hasTwoPhases, magEquation, hasFm, timeEarlyColor, timeLateColor, tgMinTime, tgMaxTime, shallowEqColor, deepEqColor, shallowRgb, deepRgb, basePointSize, focalMechs, belowAxisBoxTop } = settings;
+            const { lScale, padX, padY, textPx, margin, ms1Text, ms2Text, hasMs1, hasMs2 } = opts;
+
+            ctx.save();
+            ctx.font = `${textPx}px "${fontName}"`;
+            ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+
+            const ms1LabelText = (ms1Text && ms1Text.trim()) ? ms1Text : (hasTwoPhases ? 'Mainshock 1' : 'Mainshock');
+            const ms2LabelText = (ms2Text && ms2Text.trim()) ? ms2Text : 'Second Largest Event';
+
+            const itemGap = 22 * lScale, rowGap = 8 * lScale;
+            const items = [];
+
+            function addColorBarItem(label, colorStart, colorEnd, startLabel, endLabel) {
+                const barW = 60 * lScale, barH = Math.max(12 * lScale, textPx * 0.8);
+                const labelW = ctx.measureText(label).width, startW = ctx.measureText(startLabel).width, endW = ctx.measureText(endLabel).width;
+                const totalW = labelW + 8 * lScale + startW + 6 * lScale + barW + 6 * lScale + endW;
+                items.push({ width: totalW, height: Math.max(barH, textPx), draw(x, yMid) {
+                    ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillStyle = '#1e293b';
+                    ctx.fillText(label, x, yMid); x += labelW + 8 * lScale;
+                    ctx.fillText(startLabel, x, yMid); x += startW + 6 * lScale;
+                    const grad = ctx.createLinearGradient(x, 0, x + barW, 0); grad.addColorStop(0, colorStart); grad.addColorStop(1, colorEnd);
+                    ctx.fillStyle = grad; ctx.fillRect(x, yMid - barH / 2, barW, barH);
+                    ctx.strokeStyle = 'rgba(0,0,0,0.3)'; ctx.lineWidth = 1 * scale; ctx.strokeRect(x, yMid - barH / 2, barW, barH);
+                    x += barW + 6 * lScale; ctx.fillStyle = '#1e293b'; ctx.fillText(endLabel, x, yMid);
+                } });
+            }
+
+            function addPhaseItem(color, label) {
+                const r = 5 * lScale; const textW = ctx.measureText(label).width; const w = r * 2 + 8 * lScale + textW;
+                items.push({ width: w, height: Math.max(r * 2, textPx), draw(x, yMid) {
+                    ctx.beginPath(); ctx.fillStyle = color; ctx.arc(x + r, yMid, r, 0, 2 * Math.PI); ctx.fill();
+                    ctx.strokeStyle = 'rgba(0,0,0,0.2)'; ctx.lineWidth = 1 * scale; ctx.stroke();
+                    ctx.fillStyle = '#1e293b'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(label, x + r * 2 + 8 * lScale, yMid);
+                } });
+            }
+
+            function addStarItem(color, label) {
+                const outer = Math.max(7 * lScale, textPx * 0.45); const textW = ctx.measureText(label).width; const w = outer * 2 + 8 * lScale + textW;
+                items.push({ width: w, height: outer * 2, draw(x, yMid) {
+                    ctx.fillStyle = color; ctx.strokeStyle = 'rgba(0,0,0,0.9)'; ctx.lineWidth = 1.2 * scale;
+                    drawStar(ctx, x + outer, yMid, 5, outer, outer * 0.42);
+                    ctx.fillStyle = '#1e293b'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(label, x + outer * 2 + 8 * lScale, yMid);
+                } });
+            }
+
+            function addFmItem(label, compColor, repFm) {
+                const fmR = Math.max(7 * lScale, textPx * 0.45); const textW = ctx.measureText(label).width; const w = fmR * 2 + 8 * lScale + textW;
+                items.push({ width: w, height: fmR * 2, draw(x, yMid) {
+                    drawBeachBallCanvas(ctx, x + fmR, yMid, fmR, repFm.strike, repFm.dip, repFm.rake, compColor);
+                    ctx.fillStyle = '#1e293b'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(label, x + fmR * 2 + 8 * lScale, yMid);
+                } });
+            }
+
+            function addMagItem(mag) {
+                const eqVal = evaluateRadius(mag, basePointSize); const r = eqVal * lScale; const rDraw = Math.max(1 * scale, Math.min(r, 26 * lScale));
+                ctx.font = `${textPx * 0.85}px "${fontName}"`;
+                const label = `M${mag}`; const textW = ctx.measureText(label).width; const w = rDraw * 2 + 6 * lScale + textW;
+                items.push({ width: w, height: Math.max(rDraw * 2, textPx), draw(x, yMid) {
+                    ctx.beginPath(); ctx.arc(x + rDraw, yMid, rDraw, 0, 2 * Math.PI);
+                    ctx.fillStyle = 'rgba(200,200,200,0.5)'; ctx.strokeStyle = 'rgba(0,0,0,0.7)'; ctx.lineWidth = 1 * scale; ctx.fill(); ctx.stroke();
+                    ctx.fillStyle = '#1e293b'; ctx.font = `${textPx * 0.85}px "${fontName}"`; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(label, x + rDraw * 2 + 6 * lScale, yMid);
+                } });
+                ctx.font = `${textPx}px "${fontName}"`;
+            }
+
+            function addTextItem(text, italic) {
+                ctx.font = `${italic ? 'italic ' : ''}${textPx * 0.9}px "${fontName}"`;
+                const w = ctx.measureText(text).width;
+                items.push({ width: w, height: textPx, draw(x, yMid) {
+                    ctx.fillStyle = '#1e293b'; ctx.font = `${italic ? 'italic ' : ''}${textPx * 0.9}px "${fontName}"`; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(text, x, yMid);
+                } });
+                ctx.font = `${textPx}px "${fontName}"`;
+            }
+
+            if (coloringMode === 'time' && hasTwoPhases) {
+                addPhaseItem('rgba(148, 163, 184, 0.85)', ms1Text || 'Phase 1');
+                addPhaseItem('rgba(239, 68, 68, 0.85)', ms2Text || 'Phase 2');
+            } else if (coloringMode === 'time-gradient') {
+                addColorBarItem('Event Time', timeEarlyColor, timeLateColor, new Date(tgMinTime).toLocaleDateString(), new Date(tgMaxTime).toLocaleDateString());
+            } else if (coloringMode !== 'time') {
+                addColorBarItem('Depth (km)', shallowEqColor, deepEqColor, '0', String(maxDepth));
+            }
+            if (hasMs1) addStarItem('#06b6d4', ms1LabelText);
+            if (hasMs2) addStarItem('#eab308', ms2LabelText);
+            if (hasFm) {
+                let repFm = { strike: 135, dip: 45, rake: 90, depth: 0, mag: 0 };
+                if (focalMechs && focalMechs.length > 0) { repFm = focalMechs.reduce((prev, current) => ((prev.mag || 0) > (current.mag || 0)) ? prev : current); }
+                const depthFactor = Math.min(repFm.depth / maxDepth, 1.0); const compColor = interpolateColor(shallowRgb, deepRgb, depthFactor);
+                addFmItem('Focal Mechanism', compColor, repFm);
+            }
+            if (magnitudeSizing) {
+                let eqDisplay = magEquation.length > 22 ? magEquation.substring(0, 22) + '...' : magEquation;
+                addTextItem(`Radius (px) = ${eqDisplay}`, true);
+                [3, 5, 7].forEach(addMagItem);
+            }
+
+            const maxRowWidth = chartWidth * 0.95;
+            const rows = [[]]; let curW = 0;
+            items.forEach(it => {
+                const isFirstInRow = rows[rows.length - 1].length === 0;
+                const addW = it.width + (isFirstInRow ? 0 : itemGap);
+                if (!isFirstInRow && curW + addW > maxRowWidth) { rows.push([it]); curW = it.width; }
+                else { rows[rows.length - 1].push(it); curW += addW; }
+            });
+
+            const rowMetrics = rows.map(row => ({
+                w: row.reduce((s, it, idx) => s + it.width + (idx > 0 ? itemGap : 0), 0),
+                h: Math.max(...row.map(it => it.height), textPx)
+            }));
+            const blockW = Math.max(...rowMetrics.map(r => r.w));
+            const blockH = rowMetrics.reduce((s, r) => s + r.h, 0) + rowGap * (rows.length - 1);
+
+            const boxW = blockW + padX * 2, boxH = blockH + padY * 2;
+            const boxX = padding.left + ((chartWidth - boxW) / 2);
+            const boxY = belowAxisBoxTop !== undefined ? belowAxisBoxTop : (padding.top + (settings.chartHeight || 0) + margin);
+
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.92)'; ctx.strokeStyle = '#94a3b8'; ctx.lineWidth = 1 * scale;
+            ctx.fillRect(boxX, boxY, boxW, boxH); ctx.strokeRect(boxX, boxY, boxW, boxH);
+
+            let rowY = boxY + padY;
+            rows.forEach((row, idx) => {
+                const { w: rw, h: rh } = rowMetrics[idx];
+                let rx = boxX + (boxW - rw) / 2;
+                const yMid = rowY + rh / 2;
+                row.forEach(it => { it.draw(rx, yMid); rx += it.width + itemGap; });
+                rowY += rh + rowGap;
+            });
+
+            ctx.restore();
+        }
+
         function drawLegend(ctx, scale, settings, fontName) {
             if (!showLegendCheckbox.checked) return;
-            const { padding, chartWidth, chartHeight, maxDepth, coloringMode, minLegendPx, magnitudeSizing, hasTwoPhases, magEquation, hasFm } = settings;
+            const { padding, chartWidth, chartHeight, maxDepth, coloringMode, minLegendPx, magnitudeSizing, hasTwoPhases, magEquation, hasFm, timeEarlyColor, timeLateColor, tgMinTime, tgMaxTime } = settings;
             
             const legendScale = parseFloat(document.getElementById('legend_scale_slider').value);
             const lScale = scale * legendScale; 
@@ -1914,10 +2145,15 @@
 
             function wrapText(text, maxWidth) { const out = [], raw = (text || '').toString().trim(); if (!raw) return out; const words = raw.split(/\s+/); let line = ''; for (let i = 0; i < words.length; i++) { const test = line ? (line + ' ' + words[i]) : words[i]; if (ctx.measureText(test).width <= maxWidth) line = test; else { if (line) out.push(line); line = words[i]; } } if (line) out.push(line); if (out.length === 0) out.push(raw); return out; }
 
-            const ms1Text = legendP1Input.value.trim() || (hasTwoPhases ? 'Phase 1' : 'Mainshock'); 
+            const ms1Text = legendP1Input.value.trim() || (hasTwoPhases ? 'Phase 1' : 'Mainshock');
             const ms2Text = legendP2Input.value.trim() || 'Phase 2';
             const mainshockAsCircleForLegend = mainshockAsCircleCheckbox && mainshockAsCircleCheckbox.checked;
             const hasMs1 = !!settings.hasMs1 && !mainshockAsCircleForLegend, hasMs2 = !!settings.hasMs2 && !mainshockAsCircleForLegend;
+
+            if (settings.legendPosition === 'below-axis') {
+                drawHorizontalLegend(ctx, scale, settings, fontName, { lScale, padX, padY, textPx, margin, ms1Text, ms2Text, hasMs1, hasMs2 });
+                return;
+            }
 
             ctx.save(); ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.font = `bold ${titlePx}px "${fontName}"`; const titleW = ctx.measureText('Legend').width; ctx.font = `${textPx}px "${fontName}"`;
             const contentMaxW = Math.max(80 * scale, maxBoxW - (padX * 2 + markerCol + markerGap));
@@ -1934,7 +2170,8 @@
             
             let maxTextW = titleW; [phase1Lines, phase2Lines, ms1Lines, ms2Lines, fmLines].forEach(arr => arr.forEach(t => maxTextW = Math.max(maxTextW, ctx.measureText(t).width)));
             
-            const gradLabel = 'Depth (km)', gradLabelW = ctx.measureText(gradLabel).width, gradBarW = 14 * lScale, numW = Math.max(ctx.measureText('0').width, ctx.measureText(String(maxDepth)).width);
+            const gradLabel = (coloringMode === 'time-gradient') ? 'Event Time' : 'Depth (km)', gradLabelW = ctx.measureText(gradLabel).width, gradBarW = 14 * lScale;
+            const numW = (coloringMode === 'time-gradient') ? Math.max(ctx.measureText(new Date(tgMinTime).toLocaleDateString()).width, ctx.measureText(new Date(tgMaxTime).toLocaleDateString()).width) : Math.max(ctx.measureText('0').width, ctx.measureText(String(maxDepth)).width);
             const gradientBlockW = Math.max(gradLabelW, titleW) + 24 * lScale + gradBarW + numW;
             
             let maxRInLegend = 0; let magBoxW = 0;
@@ -1962,8 +2199,11 @@
             if (magnitudeSizing) { legendH += lineH + 15 * lScale + maxRInLegend * 2 + 10 * lScale; } 
             legendH += padY;
 
-            let legendX = Math.max(padding.left + margin, padding.left + chartWidth - legendW - margin);
-            let legendY = Math.max(padding.top + margin, padding.top + chartHeight - legendH - margin);
+            const legendPosition = settings.legendPosition || 'bottom-right';
+            const legendAnchorLeft = legendPosition === 'top-left' || legendPosition === 'bottom-left';
+            const legendAnchorTop = legendPosition === 'top-left' || legendPosition === 'top-right';
+            let legendX = legendAnchorLeft ? padding.left + margin : Math.max(padding.left + margin, padding.left + chartWidth - legendW - margin);
+            let legendY = legendAnchorTop ? padding.top + margin : Math.max(padding.top + margin, padding.top + chartHeight - legendH - margin);
 
             ctx.fillStyle = 'rgba(255, 255, 255, 0.92)'; ctx.strokeStyle = '#94a3b8'; ctx.lineWidth = 1 * scale; ctx.fillRect(legendX, legendY, legendW, legendH); ctx.strokeRect(legendX, legendY, legendW, legendH);
 
@@ -1978,6 +2218,12 @@
                     drawLinesWithMarker((mx, my) => { ctx.beginPath(); ctx.fillStyle = 'rgba(148, 163, 184, 0.85)'; ctx.arc(mx, my, 5 * lScale, 0, 2 * Math.PI); ctx.fill(); ctx.strokeStyle = 'rgba(0,0,0,0.2)'; ctx.lineWidth = 1 * scale; ctx.stroke(); ctx.fillStyle = '#1e293b'; }, phase1Lines.length ? phase1Lines : ['Phase 1']); y += 8 * lScale;
                     drawLinesWithMarker((mx, my) => { ctx.beginPath(); ctx.fillStyle = 'rgba(239, 68, 68, 0.85)'; ctx.arc(mx, my, 5 * lScale, 0, 2 * Math.PI); ctx.fill(); ctx.strokeStyle = 'rgba(0,0,0,0.2)'; ctx.lineWidth = 1 * scale; ctx.stroke(); ctx.fillStyle = '#1e293b'; }, phase2Lines.length ? phase2Lines : ['Phase 2']); y += 12 * lScale;
                 }
+            } else if (coloringMode === 'time-gradient') {
+                const tgLabel = 'Event Time', earlyStr = new Date(tgMinTime).toLocaleDateString(), lateStr = new Date(tgMaxTime).toLocaleDateString();
+                const labelY = y; ctx.fillText(tgLabel, x0, labelY); const barH = 52 * lScale, barX = legendX + legendW - padX - gradBarW - numW - 8 * lScale, barY = labelY - barH * 0.5;
+                const grad = ctx.createLinearGradient(barX, barY, barX, barY + barH); grad.addColorStop(0, timeEarlyColor); grad.addColorStop(1, timeLateColor); ctx.fillStyle = grad; ctx.fillRect(barX, barY, gradBarW, barH);
+                ctx.fillStyle = '#1e293b'; ctx.textAlign = 'right'; ctx.textBaseline = 'top'; ctx.fillText(earlyStr, barX - 6 * lScale, barY); ctx.textBaseline = 'bottom'; ctx.fillText(lateStr, barX - 6 * lScale, barY + barH);
+                ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; y += Math.max(barH, lineH) + 12 * lScale;
             } else {
                 const labelY = y; ctx.fillText(gradLabel, x0, labelY); const barH = 52 * lScale, barX = legendX + legendW - padX - gradBarW - numW - 8 * lScale, barY = labelY - barH * 0.5;
                 const grad = ctx.createLinearGradient(barX, barY, barX, barY + barH); grad.addColorStop(0, settings.shallowEqColor); grad.addColorStop(1, settings.deepEqColor); ctx.fillStyle = grad; ctx.fillRect(barX, barY, gradBarW, barH);
@@ -2011,7 +2257,7 @@
         
         function drawChartOnCanvas(canvas, containerRect, scale, data, externalCtx = null) {
             const showLegend = showLegendCheckbox.checked; const { earthquakes, focalMechs, topography, faults, refA, refB } = data;
-            
+
             let splitTime = null;
             if (coloringModeSelect.value === 'time') {
                 if (phaseSplitModeSelect.value === 'manual' && manualSplitDateInput.value) {
@@ -2042,22 +2288,27 @@
             const faultFontSize = parseFloat(faultFontSizeSlider.value); const showFaultNames = showFaultNamesCheckbox.checked; const faultMarkerStyle = faultMarkerStyleSelect.value;
             const coloringMode = coloringModeSelect.value;
             
-            const fmPosition = fmPositionSelect.value; const fmScaleMulti = parseFloat(fmScaleSlider.value); const magEquation = document.getElementById('mag_equation').value;
+            const fmScaleMulti = parseFloat(fmScaleSlider.value); const magEquation = document.getElementById('mag_equation').value;
 
-            const filteredEQ = earthquakes ? earthquakes.filter(p => p.depth <= maxDepth) : [];
+            const filteredEQ = earthquakes ? filterByTimeRange(earthquakes.filter(p => p.depth <= maxDepth)) : [];
             const filteredFM = focalMechs ? focalMechs.filter(p => p.depth <= maxDepth) : [];
 
             const sortedEQForDrawing = [...filteredEQ].sort((a, b) => (a.mag || 0) - (b.mag || 0));
             const sortedFMForDrawing = [...filteredFM].sort((a, b) => (a.mag || 0) - (b.mag || 0));
 
             const shallowRgb = hexToRgb(shallowEqColor); const deepRgb = hexToRgb(deepEqColor);
+            const timeEarlyRgb = hexToRgb(document.getElementById('time_early_color').value);
+            const timeLateRgb = hexToRgb(document.getElementById('time_late_color').value);
+            const { minTime: tgMinTime, timeSpan: tgTimeSpan } = getTimeRange(processedData.rawEarthquakes);
             const maxRawElevationKm = topography.length > 0 ? Math.max(...topography.map(p => p.elevation)) / 1000 : 0; const VE = verticalExaggeration;
 
             let ctx;
             if (externalCtx) { ctx = externalCtx; } 
             else { canvas.width = containerRect.width * scale; canvas.height = containerRect.height * scale; ctx = canvas.getContext('2d'); ctx.fillStyle = 'white'; ctx.fillRect(0, 0, canvas.width, canvas.height); }
 
-            const padding = { top: 80 * activeScale, right: 40 * activeScale, bottom: 60 * activeScale, left: 60 * activeScale };
+            const legendPositionVal = document.getElementById('legend_position').value;
+            const belowAxisLegend = showLegend && legendPositionVal === 'below-axis';
+            const padding = { top: 80 * activeScale, right: 40 * activeScale, bottom: belowAxisLegend ? 220 * activeScale : 60 * activeScale, left: 60 * activeScale };
             const drawWidth = (externalCtx ? externalCtx.width || (containerRect.width*scale) : canvas.width) - padding.left - padding.right;
             const drawHeight = (containerRect.height * scale) - padding.top - padding.bottom;
 
@@ -2082,7 +2333,7 @@
                 ctx.beginPath(); 
             }
 
-            if (sortedFMForDrawing.length > 0 && fmPosition === 'sky') {
+            if (sortedFMForDrawing.length > 0) {
                 ctx.strokeStyle = 'rgba(100, 116, 139, 0.5)'; ctx.setLineDash([4 * scale, 4 * scale]); ctx.lineWidth = 1 * scale;
                 sortedFMForDrawing.forEach((fm, index) => {
                     const x = mapX(fm.distanceKm); const fmDepthY = mapY(-fm.depth); if (trueScale && fmDepthY > bottomY) return;
@@ -2152,8 +2403,9 @@
                     fillAlpha = 0.9;
                 }
 
-                if (coloringMode === 'time' && hasTwoPhases) { ctx.fillStyle = p.isPhase2 ? 'rgb(239, 68, 68)' : 'rgb(148, 163, 184)'; } 
-                else if (coloringMode === 'time' && !hasTwoPhases) { ctx.fillStyle = 'rgb(59, 130, 246)'; } 
+                if (coloringMode === 'time' && hasTwoPhases) { ctx.fillStyle = p.isPhase2 ? 'rgb(239, 68, 68)' : 'rgb(148, 163, 184)'; }
+                else if (coloringMode === 'time' && !hasTwoPhases) { ctx.fillStyle = 'rgb(59, 130, 246)'; }
+                else if (coloringMode === 'time-gradient') { ctx.fillStyle = getTimeGradientColor(p, tgMinTime, tgTimeSpan, timeEarlyRgb, timeLateRgb); }
                 else { const depthFactor = Math.min(p.depth / maxDepth, 1.0); ctx.fillStyle = interpolateColor(shallowRgb, deepRgb, depthFactor); }
                 
                 ctx.globalAlpha = fillAlpha;
@@ -2178,6 +2430,7 @@
                 if (mainshockAsCircle) {
                     if (coloringMode === 'time' && hasTwoPhases) { ctx.fillStyle = p.isPhase2 ? 'rgb(239, 68, 68)' : 'rgb(148, 163, 184)'; }
                     else if (coloringMode === 'time' && !hasTwoPhases) { ctx.fillStyle = 'rgb(59, 130, 246)'; }
+                    else if (coloringMode === 'time-gradient') { ctx.fillStyle = getTimeGradientColor(p, tgMinTime, tgTimeSpan, timeEarlyRgb, timeLateRgb); }
                     else { const depthFactor = Math.min(p.depth / maxDepth, 1.0); ctx.fillStyle = interpolateColor(shallowRgb, deepRgb, depthFactor); }
 
                     let strokeColor = 'rgba(0,0,0,0.2)', strokeWidth = 0.5 * scale, fillAlpha = 0.75;
@@ -2212,34 +2465,14 @@
                     let r = basePointSize * 1.0 * scale * fmScaleMulti; 
                     if (magnitudeSizing && fm.mag) { r = evaluateRadius(fm.mag, basePointSize) * 0.75 * scale * fmScaleMulti; }
 
-                    let fmDrawX = fmBaseX;
-                    let y = fmDepthY;
-                    if (fmPosition === 'sky') {
-                        // Sky mode: beachball above topo, red dot + vertical line at true depth
-                        y = padding.top + 25 * scale + (index % 3) * 35 * scale;
-                        ctx.fillStyle = 'red'; ctx.beginPath(); ctx.arc(fmBaseX, fmDepthY, 3 * scale, 0, 2 * Math.PI); ctx.fill();
-                    } else {
-                        // In-situ mode: beachball offset slightly to the right of hypocenter.
-                        // A dashed guide line connects the exact hypocenter dot to the beachball centre.
-                        const dotR = Math.max(3 * scale, r * 0.18);
-                        const bbCx = fmBaseX + r * 2.8;
-                        // Hypocenter dot
-                        ctx.beginPath(); ctx.arc(fmBaseX, fmDepthY, dotR, 0, 2 * Math.PI);
-                        ctx.fillStyle = 'rgba(0,0,0,0.7)'; ctx.fill();
-                        // Dashed guide line
-                        ctx.save();
-                        ctx.setLineDash([3 * scale, 3 * scale]);
-                        ctx.strokeStyle = 'rgba(0,0,0,0.55)';
-                        ctx.lineWidth = 1.0 * scale;
-                        ctx.beginPath(); ctx.moveTo(fmBaseX + dotR, fmDepthY); ctx.lineTo(bbCx - r, fmDepthY);
-                        ctx.stroke();
-                        ctx.restore();
-                        fmDrawX = bbCx;
-                    }
+                    // Beachball is always plotted above the topography ("in the sky") as a standard lower-hemisphere
+                    // (map/plan) projection; a red dot marks the true hypocentre and a dashed guide line (drawn earlier) links them.
+                    const y = padding.top + 25 * scale + (index % 3) * 35 * scale;
+                    ctx.fillStyle = 'red'; ctx.beginPath(); ctx.arc(fmBaseX, fmDepthY, 3 * scale, 0, 2 * Math.PI); ctx.fill();
 
                     const depthFactor = Math.min(fm.depth / maxDepth, 1.0); const compColor = interpolateColor(shallowRgb, deepRgb, depthFactor);
-                    ctx.beginPath(); ctx.arc(fmDrawX, y, r + (2 * scale), 0, 2 * Math.PI); ctx.fillStyle = 'rgba(255,255,255,0.85)'; ctx.fill();
-                    drawBeachBallCanvas(ctx, fmDrawX, y, r, fm.strike, fm.dip, fm.rake, compColor);
+                    ctx.beginPath(); ctx.arc(fmBaseX, y, r + (2 * scale), 0, 2 * Math.PI); ctx.fillStyle = 'rgba(255,255,255,0.85)'; ctx.fill();
+                    drawBeachBallCanvas(ctx, fmBaseX, y, r, fm.strike, fm.dip, fm.rake, compColor);
                 });
             }
 
@@ -2312,7 +2545,8 @@
                 ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
                 ctx.fillText(title, centerX, padding.top / 2);
             }
-            ctx.fillStyle = '#0f172a'; ctx.font = `bold ${fontSize(11, minTextPx)}px "${fontFamily}"`; ctx.textAlign="center"; ctx.textBaseline="alphabetic"; ctx.fillText(xLabel, centerX, (containerRect.height * scale) - (padding.bottom / 4));
+            const xLabelY = belowAxisLegend ? (bottomY + 45 * activeScale) : ((containerRect.height * scale) - (padding.bottom / 4));
+            ctx.fillStyle = '#0f172a'; ctx.font = `bold ${fontSize(11, minTextPx)}px "${fontFamily}"`; ctx.textAlign="center"; ctx.textBaseline="alphabetic"; ctx.fillText(xLabel, centerX, xLabelY);
             ctx.save(); ctx.translate(padding.left / 3, padding.top + (bottomY - padding.top) / 2); ctx.rotate(-Math.PI / 2); ctx.textAlign="center"; ctx.textBaseline="alphabetic"; ctx.fillText(yLabel, 0, 0); ctx.restore();
 
             if (refA && refB) {
@@ -2344,7 +2578,7 @@
 
             if (showLegend) {
                 const legendWidth = endXPixel - padding.left; const legendHeight = bottomY - padding.top;
-                drawLegend(ctx, scale, { padding, chartWidth: legendWidth, chartHeight: legendHeight, maxDepth, shallowEqColor, deepEqColor, shallowRgb, deepRgb, magnitudeSizing, basePointSize, coloringMode, hasTwoPhases, hasMs1: (earthquakes||[]).some(p => p.isMainshock && !p.isSecondMainshock), hasMs2: (earthquakes||[]).some(p => p.isSecondMainshock), hasFm: (filteredFM && filteredFM.length > 0), focalMechs: filteredFM, minLegendPx, magEquation, ms2Text: legendP2Input.value }, fontFamily);
+                drawLegend(ctx, scale, { padding, chartWidth: legendWidth, chartHeight: legendHeight, maxDepth, shallowEqColor, deepEqColor, shallowRgb, deepRgb, magnitudeSizing, basePointSize, coloringMode, hasTwoPhases, hasMs1: (earthquakes||[]).some(p => p.isMainshock && !p.isSecondMainshock), hasMs2: (earthquakes||[]).some(p => p.isSecondMainshock), hasFm: (filteredFM && filteredFM.length > 0), focalMechs: filteredFM, minLegendPx, magEquation, ms2Text: legendP2Input.value, legendPosition: legendPositionVal, timeEarlyColor: document.getElementById('time_early_color').value, timeLateColor: document.getElementById('time_late_color').value, tgMinTime, tgMaxTime: tgMinTime + tgTimeSpan, belowAxisBoxTop: bottomY + 70 * activeScale }, fontFamily);
             }
         }
 
