@@ -1,7 +1,7 @@
 # TectoView: An Open-Source Web Tool for Real-Time Seismotectonic Cross-Section Visualization
 
 [![DOI](https://img.shields.io/badge/DOI-10.1007%2Fs12145--026--02187--7-blue.svg)](https://doi.org/10.1007/s12145-026-02187-7)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
 
 **TectoView** is a platform-independent, browser-based single-page application designed for rapid, interactive seismotectonic data exploration and high-resolution visualization. By performing all geodetic computations entirely on the client side, TectoView bridges the gap between raw catalog data and structural interpretation within seconds—requiring no local installation, server uploads, or licensing fees.
 
@@ -67,15 +67,21 @@ The parser automatically detects column headers or schemas for three formats:
 
 ## 📖 How to Cite
 
-If you use TectoView in your research, papers, or technical reports, please cite the official journal article:
+If you use TectoView in your research, papers, or technical reports, you are legally required to cite the official peer-reviewed journal article:
 
 > Eytemiz, C. TectoView: an open-source web tool for real-time seismotectonic cross-section visualization. *Earth Sci Inform* **19**, 138 (2026). https://doi.org/10.1007/s12145-026-02187-7
 
 ---
 
-## 📄 License
+## 📄 License & Terms of Use
 
-This project is licensed under the permissive **MIT License** — see the [LICENSE](LICENSE) file for details. It permits free academic and commercial use, modification, and distribution.
+This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)** License.
+
+### Key Restrictions:
+1. **Non-Commercial Use Only:** You may not use this software, its source code, or any graphical/data outputs for commercial purposes, sales, or financial gain. It is strictly reserved for non-profit academic, scientific, and educational research.
+2. **Mandatory Attribution:** Proper citation of the official academic publication (listed under the "How to Cite" section) is legally required in any paper, thesis, report, or presentation that utilizes this software or its outputs.
+
+For full license details, see the [LICENSE](LICENSE) file or visit [Creative Commons CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
 
 ---
 
