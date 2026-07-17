@@ -1,6 +1,6 @@
 # TectoView: An Open-Source Web Tool for Real-Time Seismotectonic Cross-Section Visualization
 
-[![DOI](https://zenodo.org/badge/1121270051.svg)](https://doi.org/10.5281/zenodo.18022059)
+[![DOI](https://img.shields.io/badge/DOI-10.1007%2Fs12145--026--02187--7-blue.svg)](https://doi.org/10.1007/s12145-026-02187-7)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **TectoView** is a platform-independent, browser-based single-page application designed for rapid, interactive seismotectonic data exploration and high-resolution visualization. By performing all geodetic computations entirely on the client side, TectoView bridges the gap between raw catalog data and structural interpretation within seconds—requiring no local installation, server uploads, or licensing fees.
@@ -11,7 +11,7 @@ It is engineered to instantly produce publication-quality graphical outputs dire
 
 ## 🚀 Live Demo
 
-**[Click here to use TectoView](https://DrCanEytemiz.github.io/TectoView/)**
+**[Click here to use TectoView](https://DrCanEytemiz.github.io/TectoView/)**  
 *(No installation required. Runs entirely in your browser supporting the HTML5 Canvas API.)*
 
 ---
@@ -67,9 +67,11 @@ The parser automatically detects column headers or schemas for three formats:
 
 ## 📖 How to Cite
 
-If you use TectoView in your work, abstracts, or reports, please cite the core software and repository as follows:
+If you use TectoView in your research, papers, or technical reports, please cite the official journal article:
 
-> Eytemiz, C. (2026). TectoView: An Open-Source Web Tool for Real-Time Seismotectonic Cross-Section Visualization [Software]. Zenodo. https://doi.org/10.5281/zenodo.18022059
+> Eytemiz, C. TectoView: an open-source web tool for real-time seismotectonic cross-section visualization. *Earth Sci Inform* **19**, 138 (2026). https://doi.org/10.1007/s12145-026-02187-7
+
+---
 
 ## 📄 License
 
